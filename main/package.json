@@ -1,0 +1,26 @@
+{
+  "name": "main",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "private": true,
+  "devDependencies": {
+    "@types/node": "^9.3.0",
+    "@types/webpack": "^3.8.3",
+    "awesome-typescript-loader": "^3.4.1",
+    "ts-node": "^4.1.0",
+    "typescript": "^2.6.2",
+    "webpack": "^3.10.0"
+  },
+  "dependencies": {
+    "@mytest/a-module": "file:../@mytest/a-module",
+    "@mytest/b-module": "file:../@mytest/b-module"
+  },
+  "scripts": {
+    "preinstall": "npm i ../@mytest/a-module ../@mytest/b-module",
+    "postinstall": "rm -rf node_modules/@mytest/a-module/node_modules node_modules/@mytest/b-module/node_modules",
+    "build": "webpack",
+    "build:debug": "rm -rf webpack.debug.log && webpack --display-error-details > webpack.debug.log",
+    "start": "node dist/index.js"
+  }
+}
