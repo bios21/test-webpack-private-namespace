@@ -19,7 +19,8 @@
   "scripts": {
     "preinstall": "npm i ../@mytest/a-module ../@mytest/b-module",
     "postinstall": "rm -rf node_modules/@mytest/a-module/node_modules node_modules/@mytest/b-module/node_modules",
-    "build": "webpack",
+    "prebuild": "webpack --config-name pre-dll",
+    "build": "webpack --config-name base",
     "build:debug": "rm -rf webpack.debug.log && webpack --display-error-details > webpack.debug.log",
     "start": "node dist/index.js"
   }
