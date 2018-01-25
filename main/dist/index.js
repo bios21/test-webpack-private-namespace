@@ -67,8 +67,10 @@
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
+/*** IMPORTS FROM imports-loader ***/
+var BModule = __webpack_require__(1);
 
+"use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
@@ -106,32 +108,17 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 };
 var _this = this;
 Object.defineProperty(exports, "__esModule", { value: true });
-var a_module_1 = __webpack_require__(1);
+var a_module_1 = __webpack_require__(4);
 (function () { return __awaiter(_this, void 0, void 0, function () {
-    var list, _a, _b, _i, name_1, m;
-    return __generator(this, function (_c) {
-        switch (_c.label) {
-            case 0:
-                list = { BModule: '/b-module' };
-                _a = [];
-                for (_b in list)
-                    _a.push(_b);
-                _i = 0;
-                _c.label = 1;
-            case 1:
-                if (!(_i < _a.length)) return [3 /*break*/, 4];
-                name_1 = _a[_i];
-                console.log("Try to import " + name_1 + " from @mytest" + list[name_1]);
-                return [4 /*yield*/, Promise.resolve().then(function () { return !(function webpackMissingModule() { var e = new Error("Cannot find module \".\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()); })];
-            case 2:
-                m = _c.sent();
-                console.log(new m[name_1]());
-                _c.label = 3;
-            case 3:
-                _i++;
-                return [3 /*break*/, 1];
-            case 4: return [2 /*return*/];
+    var list, name_1, m;
+    return __generator(this, function (_a) {
+        list = { BModule: '/b-module' };
+        for (name_1 in list) {
+            console.log("Try to import " + name_1 + " from @mytest" + list[name_1]);
+            m = window['__externals__' + name_1];
+            console.log(new m[name_1]());
         }
+        return [2 /*return*/];
     });
 }); })().then(function () {
     new a_module_1.AModule();
@@ -140,8 +127,131 @@ var a_module_1 = __webpack_require__(1);
 });
 
 
+
 /***/ }),
 /* 1 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["__externals__BModule"] = __webpack_require__(3);
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
+
+/***/ }),
+/* 2 */
+/***/ (function(module, exports) {
+
+var g;
+
+// This works in non-strict mode
+g = (function() {
+	return this;
+})();
+
+try {
+	// This works if eval is allowed (see CSP)
+	g = g || Function("return this")() || (1,eval)("this");
+} catch(e) {
+	// This works if the window reference is available
+	if(typeof window === "object")
+		g = window;
+}
+
+// g can still be undefined, but nothing to do about it...
+// We return undefined, instead of nothing here, so it's
+// easier to handle this case. if(!global) { ...}
+
+module.exports = g;
+
+
+/***/ }),
+/* 3 */
+/***/ (function(module, exports) {
+
+(function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
+/******/ 	// The module cache
+/******/ 	var installedModules = {};
+/******/
+/******/ 	// The require function
+/******/ 	function __webpack_require__(moduleId) {
+/******/
+/******/ 		// Check if module is in cache
+/******/ 		if(installedModules[moduleId]) {
+/******/ 			return installedModules[moduleId].exports;
+/******/ 		}
+/******/ 		// Create a new module (and put it into the cache)
+/******/ 		var module = installedModules[moduleId] = {
+/******/ 			i: moduleId,
+/******/ 			l: false,
+/******/ 			exports: {}
+/******/ 		};
+/******/
+/******/ 		// Execute the module function
+/******/ 		modules[moduleId].call(module.exports, module, module.exports, __webpack_require__);
+/******/
+/******/ 		// Flag the module as loaded
+/******/ 		module.l = true;
+/******/
+/******/ 		// Return the exports of the module
+/******/ 		return module.exports;
+/******/ 	}
+/******/
+/******/
+/******/ 	// expose the modules object (__webpack_modules__)
+/******/ 	__webpack_require__.m = modules;
+/******/
+/******/ 	// expose the module cache
+/******/ 	__webpack_require__.c = installedModules;
+/******/
+/******/ 	// define getter function for harmony exports
+/******/ 	__webpack_require__.d = function(exports, name, getter) {
+/******/ 		if(!__webpack_require__.o(exports, name)) {
+/******/ 			Object.defineProperty(exports, name, {
+/******/ 				configurable: false,
+/******/ 				enumerable: true,
+/******/ 				get: getter
+/******/ 			});
+/******/ 		}
+/******/ 	};
+/******/
+/******/ 	// getDefaultExport function for compatibility with non-harmony modules
+/******/ 	__webpack_require__.n = function(module) {
+/******/ 		var getter = module && module.__esModule ?
+/******/ 			function getDefault() { return module['default']; } :
+/******/ 			function getModuleExports() { return module; };
+/******/ 		__webpack_require__.d(getter, 'a', getter);
+/******/ 		return getter;
+/******/ 	};
+/******/
+/******/ 	// Object.prototype.hasOwnProperty.call
+/******/ 	__webpack_require__.o = function(object, property) { return Object.prototype.hasOwnProperty.call(object, property); };
+/******/
+/******/ 	// __webpack_public_path__
+/******/ 	__webpack_require__.p = "";
+/******/
+/******/ 	// Load entry module and return exports
+/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ })
+/************************************************************************/
+/******/ ([
+/* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", { value: true });
+var BModule = /** @class */ (function () {
+    function BModule() {
+        console.log('B Module instance !');
+    }
+    return BModule;
+}());
+exports.BModule = BModule;
+
+
+/***/ })
+/******/ ])));
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 (function(e, a) { for(var i in a) e[i] = a[i]; }(exports, /******/ (function(modules) { // webpackBootstrap
@@ -227,18 +337,6 @@ exports.AModule = AModule;
 
 /***/ })
 /******/ ])));
-
-/***/ }),
-/* 2 */
-/***/ (function(module, exports) {
-
-function webpackEmptyContext(req) {
-	throw new Error("Cannot find module '" + req + "'.");
-}
-webpackEmptyContext.keys = function() { return []; };
-webpackEmptyContext.resolve = webpackEmptyContext;
-module.exports = webpackEmptyContext;
-webpackEmptyContext.id = 2;
 
 /***/ })
 /******/ ]);

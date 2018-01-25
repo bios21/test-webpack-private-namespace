@@ -4,7 +4,7 @@ import {AModule} from '@mytest/a-module';
     const list = {BModule: '/b-module'};
     for (const name in list) {
         console.log(`Try to import ${name} from @mytest${list[name]}`);
-        const m = await import(`@mytest${list[name]}`);
+        const m = window['__externals__' + name]
         console.log(new m[name]());
     }
 })().then(() => {
