@@ -68,7 +68,7 @@
 /***/ (function(module, exports, __webpack_require__) {
 
 /*** IMPORTS FROM imports-loader ***/
-var BModule = __webpack_require__(1);
+var DGzfQ0 = __webpack_require__(1);
 
 "use strict";
 var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
@@ -115,7 +115,7 @@ var a_module_1 = __webpack_require__(4);
         list = { BModule: '/b-module' };
         for (name_1 in list) {
             console.log("Try to import " + name_1 + " from @mytest" + list[name_1]);
-            m = window['__externals__' + name_1];
+            m = window['__externals__@mytest' + list[name_1]];
             console.log(new m[name_1]());
         }
         return [2 /*return*/];
@@ -132,7 +132,7 @@ var a_module_1 = __webpack_require__(4);
 /* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["__externals__BModule"] = __webpack_require__(3);
+/* WEBPACK VAR INJECTION */(function(global) {module.exports = global["__externals__@mytest/b-module"] = __webpack_require__(3);
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),

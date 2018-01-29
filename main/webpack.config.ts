@@ -9,7 +9,7 @@ function getExposeRules(rootConst): webpack.Rule[] {
             test: require.resolve(modules[m]),
             use: [{
                 loader: 'expose-loader',
-                options: `${rootConst}__${m}`
+                options: `${rootConst}__${modules[m]}`
             }]
         })
     }
@@ -17,10 +17,23 @@ function getExposeRules(rootConst): webpack.Rule[] {
     return rules;
 }
 
+function makeid() {
+    const possibleChar = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+        possible = possibleChar + '0123456789';
+
+    const getChar = list => list.charAt(Math.floor(Math.random() * list.length));
+    let text = getChar(possibleChar);
+    for (let i = 0; i < 5; i++) {
+        text += getChar(possible);
+    }
+
+    return text;
+}
+
 function buildImportsString(): string {
     const ret = [];
     for (const m in modules) {
-        ret.push(`${m}=${modules[m]}`);
+        ret.push(`${makeid()}=${modules[m]}`);
     }
 
     return ret.join(',');
